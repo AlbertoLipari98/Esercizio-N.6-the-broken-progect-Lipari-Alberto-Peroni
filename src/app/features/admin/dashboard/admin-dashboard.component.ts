@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { AuthService, User } from '../../../core/services/auth.service';
 
 interface AdminUser extends User {
@@ -53,8 +53,8 @@ interface AdminUser extends User {
     </div>
   `,
 })
-export class AdminDashboardComponent {
-  currentAdmin = this.authService.getCurrentUser();
+export class AdminDashboardComponent implements OnInit{
+  
 
   mockUsers: AdminUser[] = [
     {
@@ -91,5 +91,11 @@ export class AdminDashboardComponent {
     },
   ];
 
+  currentAdmin: any
+
+
   constructor(private authService: AuthService) {}
+  ngOnInit(): void {
+   this.currentAdmin = this.authService.getCurrentUser();
+  }
 }
