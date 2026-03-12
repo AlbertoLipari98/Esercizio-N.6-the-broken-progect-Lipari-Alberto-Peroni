@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, signal } from '@angular/core';
 import { Observable, of, delay } from 'rxjs';
 import { Account } from '../models/account.model';
 
@@ -31,4 +31,8 @@ export class AccountService {
     const account = this.accounts.find((a) => a.ownerId === ownerId);
     return of(account).pipe(delay(1000));
   }
+
+  
+
+
 }

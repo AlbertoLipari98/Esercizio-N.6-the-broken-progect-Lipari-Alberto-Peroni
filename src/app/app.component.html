@@ -4,12 +4,15 @@
   <nav>
     @if (isLoggedIn()) {
       <a routerLink="/dashboard" routerLinkActive="active-link">Dashboard</a>
+
       @if (isAdmin()) {
         <a routerLink="/admin" routerLinkActive="active-link">Admin</a>
       }
+
       <span style="color: rgba(255,255,255,0.7); font-size:13px; margin: 0 8px;">
         {{ currentUser()?.name }}
       </span>
+
       <button (click)="logout()">Esci</button>
     } @else {
       <a routerLink="/login">Accedi</a>
@@ -17,6 +20,11 @@
   </nav>
 </header>
 
-<main>
-  <router-outlet></router-outlet>
-</main>
+@if (isLoading()) {
+  <div class="loader"> 
+  </div>
+} @else {
+  <main>
+    <router-outlet></router-outlet>
+  </main>
+}
