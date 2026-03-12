@@ -1,0 +1,30 @@
+<div class="account-dashboard">
+
+  @if (account(); as acc) {
+    <!-- Scheda saldo -->
+    <div class="balance-card">
+      <h2>Conto Corrente</h2>
+      <div class="balance">
+        {{ acc.balance | currency: acc.currency : 'symbol' : '1.2-2' : 'it-IT' }}
+      </div>
+      <div class="owner">Intestato a: {{ acc.ownerName }}</div>
+      <div style="font-size:12px; opacity:0.7; margin-top:6px;">{{ acc.iban }}</div>
+    </div>
+
+    <!-- Tab di navigazione verso le sub-route -->
+    <div class="nav-tabs">
+      <a
+        routerLink="movimenti"
+        routerLinkActive="active-link"
+        [routerLinkActiveOptions]="{ exact: true }"
+      >
+        📋 Movimenti
+      </a>
+    </div>
+  } @else {
+    <p style="text-align:center; color: var(--text-secondary); padding: 48px 0;">
+      Caricamento dati conto...
+    </p>
+  }
+
+</div>
