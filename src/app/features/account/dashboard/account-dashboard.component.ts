@@ -1,6 +1,6 @@
 import { CurrencyPipe } from '@angular/common';
 import { Component, input } from '@angular/core';
-import { RouterLink, RouterLinkActive } from '@angular/router';
+import { Router, RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
 import { Account } from '../models/account.model';
 
 /**
@@ -10,7 +10,7 @@ import { Account } from '../models/account.model';
 @Component({
   selector: 'app-account-dashboard',
   standalone: true,
-  imports: [CurrencyPipe, RouterLink, RouterLinkActive],
+  imports: [CurrencyPipe, RouterLink, RouterLinkActive, RouterOutlet],
   templateUrl: './account-dashboard.component.html',
 })
 export class AccountDashboardComponent {

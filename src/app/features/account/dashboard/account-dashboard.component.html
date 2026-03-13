@@ -13,6 +13,7 @@
 
     <!-- Tab di navigazione verso le sub-route -->
     <div class="nav-tabs">
+      <router-outlet></router-outlet>
       <a
         routerLink="movimenti"
         routerLinkActive="active-link"
@@ -20,6 +21,7 @@
       >
         📋 Movimenti
       </a>
+      
     </div>
   } @else {
     <p style="text-align:center; color: var(--text-secondary); padding: 48px 0;">
